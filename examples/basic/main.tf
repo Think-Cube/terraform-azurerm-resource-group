@@ -19,10 +19,5 @@ module "resource_group" {
   source = "../.."
 
   name     = "rg-example-weu"
-  location = "westeurope"
-}
-
-output "resource_group_id" {
-  description = "ID of the resource group."
-  value       = module.resource_group.id
+  location = var.location
 }

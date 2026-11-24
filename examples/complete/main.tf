@@ -21,7 +21,7 @@ module "resource_group" {
   source = "../.."
 
   name     = "rg-example-prod-weu"
-  location = "westeurope"
+  location = var.location
 
   tags = {
     environment = "production"
@@ -39,14 +39,4 @@ module "resource_group" {
       principal_id               = data.azurerm_client_config.current.object_id
     }
   }
-}
-
-output "resource_group_id" {
-  description = "ID of the resource group."
-  value       = module.resource_group.id
-}
-
-output "role_assignment_ids" {
-  description = "IDs of the role assignments."
-  value       = module.resource_group.role_assignment_ids
 }
